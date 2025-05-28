@@ -1,20 +1,16 @@
 class Solution {
     public long zeroFilledSubarray(int[] nums) {
-        long result = 0;
-        int n = nums.length;
-        int i = 0;
-        while(i < n) {
-            if(nums[i] == 0) {
-                int l = 0;
-                while(i < n && nums[i] == 0) {
-                    i++;
-                    l++;
-                }
-                result += (long)l * (l + 1) / 2;
-            } else {
-                i++; 
+        int n=nums.length;
+        int count=0;
+        long total=0;
+        for(int i=0;i<n;i++){
+            if(nums[i]==0){
+                count++;
+                total+=count;
+            }else{
+                count=0;
             }
         }
-        return result;
+        return total;
+        }
     }
-}
